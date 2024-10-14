@@ -1,10 +1,12 @@
-import 'package:eslami_app/core/assets_manager.dart';
 import 'package:eslami_app/presentation/screens/home/taps/qurantap/widgets/quranitemwidget.dart';
 import 'package:eslami_app/presentation/screens/home/taps/qurantap/widgets/qurantab_headerwidget.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../core/assets_manager.dart';
+
 class QuranTab extends StatelessWidget {
   QuranTab({super.key});
+
   List<String> suraNames = [
     "الفاتحه",
     "البقرة",
@@ -238,27 +240,27 @@ class QuranTab extends StatelessWidget {
     6
   ];
 
-
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Column(
         children: [
-          Expanded(
-            flex: 1,
-              child: Image.asset(AssetsManager.quranHeaderImage)),
-         QuranTabHeaderWidget(),
+          Expanded(flex: 1, child: Image.asset(AssetsManager.quranHeaderImage)),
+          QuranTabHeaderWidget(),
           Expanded(
             flex: 3,
             child: ListView.separated(
-              separatorBuilder: (context,index)=>Container(
+              separatorBuilder: (context, index) => Container(
                 width: double.infinity,
-                height:3 ,
+                height: 3,
                 color: Theme.of(context).dividerColor,
-
               ),
-              itemBuilder: (context,index)=>
-                QuranItemWidget(suraName: suraNames[index], versesNumber: versesNumber[index].toString()),
+              itemBuilder: (context, index) => QuranItemWidget(
+                suraItem: SuraItem(
+                    suraName: suraNames[index],
+                    versesNumber: versesNumber[index].toString(),
+                    index: index),
+              ),
               itemCount: suraNames.length,
             ),
           )
@@ -266,4 +268,15 @@ class QuranTab extends StatelessWidget {
       ),
     );
   }
+}
+
+class SuraItem {
+  String suraName;
+  String versesNumber;
+  int index;
+
+  SuraItem(
+      {required this.suraName,
+        required this.versesNumber,
+        required this.index});
 }

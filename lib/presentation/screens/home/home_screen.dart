@@ -58,16 +58,5 @@ class _HomeScreenState extends State<HomeScreen> {
 
                ),
      );
-     // return Stack(
-     //   children: [
-     //     Image.asset(AssetsManager.LightMainBg, fit: BoxFit.fill,width: double.infinity, height: double.infinity,),
-     //     Scaffold(
-     //       backgroundColor: Colors.transparent,
-     //       appBar: AppBar(
-     //         title: Text(StringsManager.appTitle),
-     //       ),
-     //     ),
-     //   ],
-     // );
    }
 }
