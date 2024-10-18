@@ -14,7 +14,7 @@ class HadithTitleWidget extends StatelessWidget {
       onTap: () {
         Navigator.pushNamed(
           context, RoutesManager.hadithDetailsRoute,
-          arguments: hadith, // run -time polymorphism
+          arguments: hadith,
         );
       },
       child: Container(

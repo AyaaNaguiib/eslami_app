@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 
 import '../../../../../core/assets_manager.dart';
 
+
 class HadithTab extends StatefulWidget {
   HadithTab({super.key});
 
@@ -18,7 +19,7 @@ class _HadithTabState extends State<HadithTab> {
   @override
   Widget build(BuildContext context) {
     if (allHadithList.isEmpty) {
-      loadHadithFile(); // is async fuc -> Non Blocking
+      loadHadithFile();
     }
     return Container(
       child: Column(
@@ -42,32 +43,29 @@ class _HadithTabState extends State<HadithTab> {
                     thickness: 3,
                     height: 6,
                   ),
-                  itemCount: allHadithList.length))
+                  itemCount: allHadithList.length
+              )
+          )
         ],
       ),
     );
   }
 
-  String add(String n1, String n2) {
-    return n1 + n2; // 105
-  }
-
   void loadHadithFile() async {
-    String fileContent =
-    await rootBundle.loadString('assets/files/ahadeth.txt'); // blocking
+    String fileContent = await rootBundle.loadString('assets/files/ahadeth.txt');
     List<String> hadithList =
-    fileContent.trim().split('#'); // contains 50 hadithItem
+    fileContent.trim().split('#');
     for (int i = 0; i < hadithList.length; i++) {
-      String hadithItem = hadithList[i]; // 0  1
+      String hadithItem = hadithList[i];
       List<String> hadithLines =
-      hadithItem.trim().split('\n'); // contains hadith as lines
-      String title = hadithLines[0]; // get title
-      hadithLines.removeAt(0); // removing title
+      hadithItem.trim().split('\n');
+      String title = hadithLines[0];
+      hadithLines.removeAt(0);
       String content = hadithLines.join('\n');
       print('this is title $title');
       print('this is content $content');
-      Hadith hadith = Hadith(title: title, content: content); // first H
-      allHadithList.add(hadith); //
+      Hadith hadith = Hadith(title: title, content: content);
+      allHadithList.add(hadith);
     }
     setState(() {});
   }

@@ -18,6 +18,7 @@ class HadithHeaderWidget extends StatelessWidget {
         child: Text(
           StringsManager.elHadithLabel,
           style: Theme.of(context).textTheme.labelMedium,
-        ));
+        )
+    );
   }
 }
