@@ -5,6 +5,7 @@ import 'package:eslami_app/presentation/screens/home/taps/sebhatab/sebha_tab.dar
 import 'package:eslami_app/presentation/screens/quran_details/qurandetails.dart';
 import 'package:eslami_app/presentation/screens/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:eslami_app/presentation/screens/home/taps/settingstab/settingstab.dart';
 
 import '../presentation/screens/hadith_details/hadith_Details.dart';
 

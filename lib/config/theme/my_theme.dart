@@ -11,15 +11,27 @@ class MyTheme {
           titleTextStyle: TextStyle(
               fontSize: 30, fontWeight: FontWeight.w400, color: Colors.black)),
       scaffoldBackgroundColor: Colors.transparent,
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.white,
         selectedIconTheme: IconThemeData(size: 36),
         showSelectedLabels: true,
         showUnselectedLabels: false,
       ),
+      bottomSheetTheme: const BottomSheetThemeData(
+        backgroundColor: ColorsManager.goldColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(12),
+            topRight: Radius.circular(12),
+          ),
+        ),
+        elevation: 18,
+
+      ),
+      iconTheme: const IconThemeData(color: Colors.white,size: 30),
       cardTheme: CardTheme(
-        margin: EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+        margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
         color: ColorsManager.goldColor.withOpacity(0.7),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         elevation: 14,
@@ -35,7 +47,7 @@ class MyTheme {
         ),
       ),
       dividerColor: Color(0xFFB7935F),
-      textTheme: TextTheme(
+      textTheme: const TextTheme(
         labelMedium: TextStyle(
           fontSize: 21,
           fontWeight: FontWeight.w500,
@@ -57,5 +69,10 @@ class MyTheme {
           fontWeight: FontWeight.bold,
           color: Color(0xFF242424), // Dark text color
         ),
-      ));
+        headlineLarge: TextStyle(color: Colors.black,fontSize: 14,fontWeight: FontWeight.w400),
+        headlineSmall: TextStyle(color: Colors.black,fontSize: 12,fontWeight: FontWeight.w400),
+
+        bodyLarge: TextStyle(color: Colors.white,fontSize: 21,fontWeight: FontWeight.w500),
+      ),
+  );
 }
